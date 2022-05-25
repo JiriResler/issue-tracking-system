@@ -1,4 +1,4 @@
-package cz.mff.resler.java.issue_tracking_system.controller;
+package cz.mff.resler.java.issue_tracking_system.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

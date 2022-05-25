@@ -1,4 +1,4 @@
-package cz.mff.resler.java.issue_tracking_system;
+package cz.mff.resler.java.issue_tracking_system.model;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.control.Button;
 

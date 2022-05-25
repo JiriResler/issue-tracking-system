@@ -1,6 +1,8 @@
-package cz.mff.resler.java.issue_tracking_system.controller;
+package cz.mff.resler.java.issue_tracking_system.controllers;
 
-import cz.mff.resler.java.issue_tracking_system.*;
+import cz.mff.resler.java.issue_tracking_system.model.Issue;
+import cz.mff.resler.java.issue_tracking_system.model.IssueModel;
+import cz.mff.resler.java.issue_tracking_system.model.UserModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

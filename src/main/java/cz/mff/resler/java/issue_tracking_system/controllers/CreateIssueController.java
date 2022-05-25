@@ -1,18 +1,13 @@
-package cz.mff.resler.java.issue_tracking_system.controller;
+package cz.mff.resler.java.issue_tracking_system.controllers;
 
-import cz.mff.resler.java.issue_tracking_system.IssueModel;
-import cz.mff.resler.java.issue_tracking_system.UserModel;
+import cz.mff.resler.java.issue_tracking_system.model.IssueModel;
+import cz.mff.resler.java.issue_tracking_system.model.UserModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

@@ -1,4 +1,4 @@
-package cz.mff.resler.java.issue_tracking_system;
+package cz.mff.resler.java.issue_tracking_system.controllers;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -20,7 +20,6 @@ public class App extends Application {
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.setTitle("Issue Tracking System");
-            primaryStage.getIcons().add(new Image(getClass().getResource("icons8-tick-box-32.png").toString()));
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
