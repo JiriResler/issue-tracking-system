@@ -16,7 +16,6 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-
             Parent root = FXMLLoader.load(getClass().getResource("log_in_scene.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
@@ -31,5 +30,4 @@ public class App extends Application {
     public static void main(String[] args) {
         launch();
     }
-
 }

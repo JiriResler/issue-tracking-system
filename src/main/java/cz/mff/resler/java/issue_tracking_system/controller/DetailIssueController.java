@@ -1,4 +1,4 @@
-package cz.mff.resler.java.issue_tracking_system;
+package cz.mff.resler.java.issue_tracking_system.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
  */
 public class DetailIssueController implements Initializable {
     @FXML
-    Label issueIDLabel;
+    private Label issueIDLabel;
 
     @FXML
     Label createdByLabel;
@@ -28,6 +28,26 @@ public class DetailIssueController implements Initializable {
 
     @FXML
     Text descriptionText;
+
+    public Label getIssueIDLabel() {
+        return issueIDLabel;
+    }
+
+    public Label getCreatedByLabel() {
+        return createdByLabel;
+    }
+
+    public Label getPriorityLabel() {
+        return priorityLabel;
+    }
+
+    public Text getSummaryText() {
+        return summaryText;
+    }
+
+    public Text getDescriptionText() {
+        return descriptionText;
+    }
 
     /**
      * Initializes the DetailIssueController after loading its scene.

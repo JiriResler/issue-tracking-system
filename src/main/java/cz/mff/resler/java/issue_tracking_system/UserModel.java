@@ -12,6 +12,10 @@ public class UserModel {
         connection = SQLiteConnection.connector();
     }
 
+    public static Connection getConnection() {
+        return connection;
+    }
+
     /**
      * Checks whether there exists a user with the given username in the database.
      *

@@ -1,5 +1,6 @@
-package cz.mff.resler.java.issue_tracking_system;
+package cz.mff.resler.java.issue_tracking_system.controller;
 
+import cz.mff.resler.java.issue_tracking_system.UserModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,10 +34,10 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 //      Check if connection was established with the database
-        if (UserModel.connection == null) {
+        if (UserModel.getConnection() == null) {
             Alert alert = new Alert(
                     Alert.AlertType.ERROR,
-                    "Connection to the database could not established.",
+                    "Connection to the database could not be established.",
                     ButtonType.CLOSE);
             alert.setTitle("Error");
             alert.setHeaderText("ERROR");
@@ -61,8 +62,8 @@ public class LoginController implements Initializable {
                 DashboardController dashboardController = loader.getController();
 
 //              Pass name of logged-in user
-                dashboardController.loggedInUsername = loginUsername.getText();
-                dashboardController.usernameLabel.setText("Logged in as:  " + loginUsername.getText());
+                dashboardController.setLoggedInUsername(loginUsername.getText());
+                dashboardController.getUsernameLabel().setText("Logged in as:  " + loginUsername.getText());
                 dashboardController.refreshOpenIssuesTable();
                 dashboardController.refreshClosedIssuesTable();
 

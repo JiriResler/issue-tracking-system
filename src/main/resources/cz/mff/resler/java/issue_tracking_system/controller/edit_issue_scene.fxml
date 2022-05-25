@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="647.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.mff.resler.java.issue_tracking_system.DetailIssueController">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="647.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.mff.resler.java.issue_tracking_system.controller.EditIssueController">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="648.0" prefWidth="645.0">
          <children>
-            <Label fx:id="issueIDLabel" layoutX="282.0" layoutY="27.0" text="Issue id">
+            <Label fx:id="edit_Issue_Id_Label" layoutX="232.0" layoutY="27.0" text="Editing issue">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Button layoutX="271.0" layoutY="584.0" mnemonicParsing="false" onAction="#closeDetailButtonClicked" text="Close detail">
-               <font>
-                  <Font size="16.0" />
-               </font></Button>
+            <Button layoutX="14.0" layoutY="609.0" mnemonicParsing="false" onAction="#cancelButtonClicked" text="Cancel" />
             <GridPane layoutX="62.0" layoutY="58.0" prefHeight="503.0" prefWidth="506.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="232.0" minWidth="10.0" prefWidth="108.0" />
@@ -40,7 +39,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="createdByLabel" text="User" GridPane.columnIndex="1">
+                  <Label fx:id="creatorLabel" text="User" GridPane.columnIndex="1">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -50,6 +49,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
+                  <TextField fx:id="summaryTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
                      <children>
                         <Label layoutY="20.0" text="Full description">
@@ -64,31 +64,19 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <ChoiceBox fx:id="priorityChoiceBox" prefHeight="26.0" prefWidth="74.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <children>
-                        <ScrollPane layoutY="20.0" prefHeight="344.0" prefWidth="382.0">
-                           <content>
-                              <Text fx:id="descriptionText" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="360.0">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Text>
-                           </content>
-                        </ScrollPane>
+                        <TextArea fx:id="descriptionTextArea" layoutX="-1.0" layoutY="19.0" prefHeight="337.0" prefWidth="386.0" wrapText="true" />
                      </children>
                   </AnchorPane>
-                  <Label fx:id="priorityLabel" text="Priority" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Text fx:id="summaryText" strokeType="OUTSIDE" strokeWidth="0.0" text="Summary" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Text>
                </children>
             </GridPane>
+            <Button layoutX="267.0" layoutY="572.0" mnemonicParsing="false" onAction="#UpdateIssueButtonClicked" text="Update issue">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
          </children></AnchorPane>
   </content>
 </ScrollPane>

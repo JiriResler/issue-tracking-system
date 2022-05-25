@@ -1,5 +1,6 @@
-package cz.mff.resler.java.issue_tracking_system;
+package cz.mff.resler.java.issue_tracking_system.controller;
 
+import cz.mff.resler.java.issue_tracking_system.UserModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -84,8 +85,8 @@ public class CreateAccountController implements Initializable {
                 Parent root = loader.load(Objects.requireNonNull(getClass().getResource("dashboard_scene.fxml")).openStream());
                 DashboardController dashboardController = loader.getController();
 //              Pass name of logged-in user
-                dashboardController.usernameLabel.setText("Logged in as:  " + usernameTextField.getText());
-                dashboardController.loggedInUsername = usernameTextField.getText();
+                dashboardController.getUsernameLabel().setText("Logged in as:  " + usernameTextField.getText());
+                dashboardController.setLoggedInUsername(usernameTextField.getText());
                 dashboardController.refreshOpenIssuesTable();
                 dashboardController.refreshClosedIssuesTable();
                 Scene scene = new Scene(root);

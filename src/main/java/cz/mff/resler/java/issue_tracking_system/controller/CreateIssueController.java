@@ -1,5 +1,7 @@
-package cz.mff.resler.java.issue_tracking_system;
+package cz.mff.resler.java.issue_tracking_system.controller;
 
+import cz.mff.resler.java.issue_tracking_system.IssueModel;
+import cz.mff.resler.java.issue_tracking_system.UserModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,11 +23,11 @@ import java.util.ResourceBundle;
  */
 public class CreateIssueController implements Initializable {
 
-    private final static  IssueModel issueModel = new IssueModel();
-    private final static  UserModel userModel = new UserModel();
+    private final static IssueModel issueModel = new IssueModel();
+    private final static UserModel userModel = new UserModel();
 
     @FXML
-    Label usernameLabel;
+    private Label usernameLabel;
 
     @FXML
     private ChoiceBox<String> priorityChoiceBox;
@@ -35,6 +37,10 @@ public class CreateIssueController implements Initializable {
 
     @FXML
     private TextArea descriptionTextArea;
+
+    public Label getUsernameLabel() {
+        return usernameLabel;
+    }
 
     /**
      * Initializes the CreateIssueController after loading its scene.

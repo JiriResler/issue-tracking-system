@@ -1,5 +1,6 @@
-package cz.mff.resler.java.issue_tracking_system;
+package cz.mff.resler.java.issue_tracking_system.controller;
 
+import cz.mff.resler.java.issue_tracking_system.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -32,26 +33,31 @@ public class DashboardController implements Initializable {
     private final static ObservableList<Issue> openIssuesList = FXCollections.observableArrayList();
     private final static ObservableList<Issue> closedIssuesList = FXCollections.observableArrayList();
 
-    String loggedInUsername;
+    private String loggedInUsername;
 
     @FXML
-    Label usernameLabel;
+    private Label usernameLabel;
 
     @FXML
-    TableView openIssuesTableView, closedIssuesTableView;
+    private TableView openIssuesTableView, closedIssuesTableView;
 
     @FXML
-    TableColumn idColOpenIssues, createdByColOpenIssues, priorityColOpenIssues,
+    private TableColumn idColOpenIssues, createdByColOpenIssues, priorityColOpenIssues,
             dateCreatedColOpenIssues, summaryColOpenIssues, detailButtonColOpenIssues,
             editButtonColOpenIssues, closeButtonColOpenIssues;
 
     @FXML
-    TableColumn idColClosedIssues, createdByColClosedIssues, priorityColClosedIssues,
+    private TableColumn idColClosedIssues, createdByColClosedIssues, priorityColClosedIssues,
             dateCreatedColClosedIssues, summaryColClosedIssues, closedByColClosedIssues,
             dateClosedColClosedIssues, detailButtonColClosedIssues;
 
-    @FXML
-    Button refreshButtonOpenIssues;
+    public void setLoggedInUsername(String loggedInUsername) {
+        this.loggedInUsername = loggedInUsername;
+    }
+
+    public Label getUsernameLabel() {
+        return this.usernameLabel;
+    }
 
     /**
      * Initializes the DashboardController after loading its scene.
@@ -131,11 +137,11 @@ public class DashboardController implements Initializable {
 
                 DetailIssueController detailIssueController = loader.getController();
 
-                detailIssueController.issueIDLabel.setText("Issue " + issue.getIdString());
-                detailIssueController.createdByLabel.setText(issue.getCreatedByUserString());
-                detailIssueController.priorityLabel.setText(issue.getPriorityString());
-                detailIssueController.summaryText.setText(issue.getSummary());
-                detailIssueController.descriptionText.setText(issue.getDescription());
+                detailIssueController.getIssueIDLabel().setText("Issue " + issue.getIdString());
+                detailIssueController.getCreatedByLabel().setText(issue.getCreatedByUserString());
+                detailIssueController.getPriorityLabel().setText(issue.getPriorityString());
+                detailIssueController.getSummaryText().setText(issue.getSummary());
+                detailIssueController.getDescriptionText().setText(issue.getDescription());
 
                 Scene scene = new Scene(root);
                 primaryStage.setScene(scene);
@@ -168,12 +174,12 @@ public class DashboardController implements Initializable {
                 Parent root = loader.load(Objects.requireNonNull(getClass().getResource("edit_issue_scene.fxml")).openStream());
 
                 EditIssueController editIssueController = loader.getController();
-                editIssueController.edit_Issue_Id_Label.setText("Editing issue #" + issue.getId());
-                editIssueController.creatorLabel.setText(issue.getCreatedByUserString());
-                editIssueController.priorityChoiceBox.setValue(issue.getPriorityString());
-                editIssueController.summaryTextField.setText(issue.getSummary());
-                editIssueController.descriptionTextArea.setText(issue.getDescription());
-                editIssueController.issueId = issue.getId();
+                editIssueController.getEdit_Issue_Id_Label().setText("Editing issue #" + issue.getId());
+                editIssueController.getCreatorLabel().setText(issue.getCreatedByUserString());
+                editIssueController.getPriorityChoiceBox().setValue(issue.getPriorityString());
+                editIssueController.getSummaryTextField().setText(issue.getSummary());
+                editIssueController.getDescriptionTextArea().setText(issue.getDescription());
+                editIssueController.setIssueId(issue.getId());
 
                 Scene scene = new Scene(root);
                 primaryStage.setScene(scene);
@@ -250,7 +256,7 @@ public class DashboardController implements Initializable {
             Parent root = loader.load(Objects.requireNonNull(getClass().getResource("create_issue_scene.fxml")).openStream());
             CreateIssueController createIssueController = loader.getController();
 //          Pass name of logged-in user
-            createIssueController.usernameLabel.setText(usernameLabel.getText().substring(15));
+            createIssueController.getUsernameLabel().setText(usernameLabel.getText().substring(15));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.showAndWait();

@@ -1,5 +1,7 @@
-package cz.mff.resler.java.issue_tracking_system;
+package cz.mff.resler.java.issue_tracking_system.controller;
 
+import cz.mff.resler.java.issue_tracking_system.IssueModel;
+import cz.mff.resler.java.issue_tracking_system.controller.CreateIssueController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,22 +18,46 @@ import java.util.ResourceBundle;
  */
 public class EditIssueController implements Initializable {
     private final static IssueModel issueModel = new IssueModel();
-    int issueId;
+    private int issueId;
 
     @FXML
-    Label edit_Issue_Id_Label;
+    private Label edit_Issue_Id_Label;
 
     @FXML
-    Label creatorLabel;
+    private Label creatorLabel;
 
     @FXML
-    ChoiceBox priorityChoiceBox;
+    private ChoiceBox priorityChoiceBox;
 
     @FXML
-    TextField summaryTextField;
+    private TextField summaryTextField;
 
     @FXML
-    TextArea descriptionTextArea;
+    private TextArea descriptionTextArea;
+
+    public void setIssueId(int id) {
+        this.issueId = id;
+    }
+
+    public Label getEdit_Issue_Id_Label() {
+        return edit_Issue_Id_Label;
+    }
+
+    public Label getCreatorLabel() {
+        return creatorLabel;
+    }
+
+    public ChoiceBox getPriorityChoiceBox() {
+        return priorityChoiceBox;
+    }
+
+    public TextField getSummaryTextField() {
+        return summaryTextField;
+    }
+
+    public TextArea getDescriptionTextArea() {
+        return descriptionTextArea;
+    }
 
     /**
      * Initializes the EditIssueController after loading its scene.
