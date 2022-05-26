@@ -1,4 +1,4 @@
-package cz.mff.resler.java.issue_tracking_system.controllers;
+package cz.mff.resler.java.issue_tracking_system;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +16,8 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("log_in_scene.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource(
+                    "controllers" + System.getProperty("file.separator") + "log_in_scene.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.setTitle("Issue Tracking System");
